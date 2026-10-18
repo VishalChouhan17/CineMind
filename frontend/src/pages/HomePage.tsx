@@ -40,14 +40,14 @@ export default function HomePage({
     return () => window.removeEventListener("cinemind_watchlist_updated", handleSync);
   }, []);
 
-  // Hero featured item
+  // Hero featured item (Authentic movie data)
   const heroMovie: WatchlistMovie = {
     title: "Kanguva",
     genre: "Action / Fantasy / Period Epic",
     rating: 8.6,
     year: 2024,
     duration: 154,
-    posterUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80",
+    posterUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
     overview: "A warrior in 1678 fights to save his people. Centuries later, a bounty hunter's mission connects him back to the same perilous fate.",
     aiExplanation: "CineMind's #1 Trending Premiere: An epic historical fantasy saga featuring high-octane battle set pieces and breathtaking cinema visuals.",
     matchScore: 98,
@@ -67,23 +67,31 @@ export default function HomePage({
     setTimeout(() => setToastMessage(null), 3200);
   };
 
-  // Trending & Recommended Carousels
+  // Trending & Recommended Carousels with Authentic Cinema Data
   const newReleases = [
     {
       id: 1,
-      title: "Colony",
+      title: "Dune: Part Two",
       year: 2024,
-      badge: "TOP 10",
-      rating: "8.4",
-      poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop&q=80",
+      badge: "TOP 1",
+      rating: "8.5",
+      genre: "Sci-Fi / Adventure",
+      duration: "2h 46m",
+      overview: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+      poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Winner of 6 Academy Awards: Denis Villeneuve's grand sci-fi spectacle with world-class IMAX visuals.",
     },
     {
       id: 2,
-      title: "Roadies Rebirth",
-      year: 2024,
-      badge: "TOP 10",
-      rating: "8.1",
-      poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=80",
+      title: "Oppenheimer",
+      year: 2023,
+      badge: "OSCAR",
+      rating: "8.9",
+      genre: "Biography / Drama",
+      duration: "3h 0m",
+      overview: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+      poster: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Christopher Nolan's biographical masterpiece featuring Cillian Murphy's career-defining performance.",
     },
     {
       id: 3,
@@ -91,82 +99,122 @@ export default function HomePage({
       year: 2024,
       badge: "NEW",
       rating: "8.6",
-      poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80",
+      genre: "Action / Period Epic",
+      duration: "2h 34m",
+      overview: "A warrior in 1678 fights to save his people. Centuries later, a bounty hunter's mission connects him back to the same perilous fate.",
+      poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "High-octane South Asian epic fantasy with dual-timeline action and thunderous tribal battle choreography.",
     },
     {
       id: 4,
-      title: "Main Ladega",
+      title: "Deadpool & Wolverine",
       year: 2024,
       badge: "HOT",
-      rating: "8.3",
-      poster: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=80",
+      rating: "7.8",
+      genre: "Action / Comedy / Sci-Fi",
+      duration: "2h 8m",
+      overview: "Wade Wilson's peaceful life is shattered when the Time Variance Authority recruits him for a multiverse mission with Wolverine.",
+      poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "The ultimate superhero buddy comedy packed with fourth-wall breaks, adrenaline, and nostalgic cameos.",
     },
     {
       id: 5,
-      title: "Baazaar",
+      title: "Spider-Man: Across the Spider-Verse",
       year: 2023,
-      badge: "",
-      rating: "7.9",
-      poster: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&auto=format&fit=crop&q=80",
+      badge: "TOP 10",
+      rating: "8.7",
+      genre: "Animation / Action",
+      duration: "2h 20m",
+      overview: "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
+      poster: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Groundbreaking animation art style and an emotional coming-of-age journey across dimensions.",
     },
     {
       id: 6,
-      title: "Karmakhya",
-      year: 2024,
-      badge: "",
-      rating: "8.2",
-      poster: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&auto=format&fit=crop&q=80",
+      title: "The Batman",
+      year: 2022,
+      badge: "CRITIC",
+      rating: "7.8",
+      genre: "Crime / Mystery / Drama",
+      duration: "2h 56m",
+      overview: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption.",
+      poster: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Atmospheric, rain-drenched detective noir that brings the Caped Crusader back to gritty investigation roots.",
     },
     {
       id: 7,
-      title: "Hunkkaar",
-      year: 2024,
-      badge: "TOP 10",
-      rating: "8.5",
-      poster: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format&fit=crop&q=80",
+      title: "Interstellar",
+      year: 2014,
+      badge: "ICONIC",
+      rating: "8.7",
+      genre: "Sci-Fi / Adventure",
+      duration: "2h 49m",
+      overview: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft along with a team of researchers.",
+      poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Christopher Nolan's emotionally shattering exploration of love, physics, wormholes, and human survival.",
     },
   ];
 
   const liveAndReality = [
     {
       id: 11,
-      title: "BBS20: 24 HRS Live Stream",
-      sub: "[Deferred] Full Uncut Feed",
-      isLive: true,
-      duration: "Live",
-      poster: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500&auto=format&fit=crop&q=80",
+      title: "Formula 1: Drive to Survive",
+      sub: "Season 6 • High Octane",
+      isLive: false,
+      duration: "45m",
+      rating: "8.5",
+      genre: "Sports Docuseries",
+      overview: "Drivers, managers and team owners live life in the fast lane — both on and off the track during each cutthroat season of Formula 1 racing.",
+      poster: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Unmatched inside access into the high-stakes rivalries and billion-dollar drama of global motorsport.",
     },
     {
       id: 12,
-      title: "BBHin Day 40: BB Says, Take a Life!",
-      sub: "Episode 41 • 1h 9m",
+      title: "Planet Earth III",
+      sub: "BBC Earth • Sir David Attenborough",
       isLive: false,
-      duration: "1h 9m",
-      poster: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=500&auto=format&fit=crop&q=80",
+      duration: "55m",
+      rating: "9.3",
+      genre: "Nature / Documentary",
+      overview: "Journey to the far corners of the planet to discover the most astonishing animal behaviors and landscapes on Earth.",
+      poster: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Visually awe-inspiring natural history series captured in pristine 4K HDR across seven continents.",
     },
     {
       id: 13,
-      title: "BBS10: 24x7 Stream House",
-      sub: "Live 24x7 Stream",
+      title: "F1 Grand Prix: Live Race Day",
+      sub: "Live 4K Ultra HD Broadcast",
       isLive: true,
       duration: "Live",
-      poster: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500&auto=format&fit=crop&q=80",
+      rating: "9.0",
+      genre: "Live Sports",
+      overview: "Live high-speed championship action, pit stop strategies, and telemetry commentary from the Formula 1 World Championship.",
+      poster: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Live streaming with multiple camera angles and cockpit team radio feeds.",
     },
     {
       id: 14,
-      title: "BBS10: Highlights & Buzz",
-      sub: "Daily Catch-Up",
+      title: "The Last Dance",
+      sub: "Michael Jordan & Chicago Bulls",
       isLive: false,
-      duration: "45m",
-      poster: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&auto=format&fit=crop&q=80",
+      duration: "50m",
+      rating: "9.1",
+      genre: "Sports / Biography",
+      overview: "Charting the rise of the 1990s Chicago Bulls, led by Michael Jordan, one of the most notable dynasties in sports history.",
+      poster: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Compelling sports history featuring never-before-seen footage of Michael Jordan's final championship season.",
     },
     {
       id: 15,
-      title: "BBS10: Elimination Night",
-      sub: "24HRS Stream Room",
-      isLive: true,
-      duration: "Live",
-      poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop&q=80",
+      title: "Chef's Table",
+      sub: "Culinary Masters Worldwide",
+      isLive: false,
+      duration: "48m",
+      rating: "8.5",
+      genre: "Culinary / Documentary",
+      overview: "Profiles of some of the most renowned international chefs who are sharing their personal stories, inspirations, and unique styles.",
+      poster: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80",
+      aiExplanation: "Intimate and cinematographically gorgeous profile of culinary artistry redefining gastronomy.",
     },
   ];
 
@@ -192,13 +240,13 @@ export default function HomePage({
               <circle cx="11" cy="11" r="7" />
               <line x1="21" y1="21" x2="16" y2="16" />
             </svg>
-            <span>Ask CineMind...</span>
+            <span className="topbar-search-text">Ask CineMind...</span>
           </button>
 
           {userEmail ? (
             <div className="user-profile-pill" onClick={onOpenAuth}>
               <div className="pill-avatar">{userEmail[0].toUpperCase()}</div>
-              <span>{userEmail.split("@")[0]}</span>
+              <span className="user-pill-name">{userEmail.split("@")[0]}</span>
             </div>
           ) : (
             <button className="btn-signin-netflix" onClick={onOpenAuth}>
@@ -364,7 +412,7 @@ export default function HomePage({
           </div>
         </section>
 
-        {/* CAROUSEL 1: NEW ON CINEMIND */}
+        {/* CAROUSEL 1: NEW ON CINEMIND (REAL DATA) */}
         <section className="carousel-section">
           <div className="section-title-row">
             <h3 className="section-heading">New on CineMind</h3>
@@ -384,10 +432,10 @@ export default function HomePage({
                     year: item.year,
                     rating: item.rating,
                     posterUrl: item.poster,
-                    genre: "Trending Premiere",
-                    overview: `Critically acclaimed title streaming now in ultra HD on Amazon Fire TV.`,
-                    aiExplanation: `Top-ranked viewer favorite with strong narrative pacing and compelling performances.`,
-                    matchScore: 94,
+                    genre: item.genre,
+                    overview: item.overview,
+                    aiExplanation: item.aiExplanation,
+                    matchScore: 96,
                     mediaType: "movie",
                   })
                 }
@@ -408,10 +456,10 @@ export default function HomePage({
           </div>
         </section>
 
-        {/* CAROUSEL 2: REALITY & LIVE TV */}
+        {/* CAROUSEL 2: TOP REALITY SHOWS & LIVE SPORTS */}
         <section className="carousel-section">
           <div className="section-title-row">
-            <h3 className="section-heading">Top Reality Shows & Entertainment</h3>
+            <h3 className="section-heading">Top Shows, Documentaries & Sports</h3>
             <button className="view-all-link" onClick={onNavigateSearch}>
               Explore &gt;
             </button>
@@ -426,12 +474,12 @@ export default function HomePage({
                   setSelectedMovie({
                     title: item.title,
                     year: 2024,
-                    rating: "8.3",
+                    rating: item.rating,
                     posterUrl: item.poster,
-                    genre: "Reality / Unscripted",
-                    overview: `${item.sub}. Stream uncut episodes and high-voltage drama.`,
-                    aiExplanation: `Popular unscripted reality television series streaming live on CineMind.`,
-                    matchScore: 91,
+                    genre: item.genre,
+                    overview: item.overview,
+                    aiExplanation: item.aiExplanation,
+                    matchScore: 93,
                     mediaType: "tv",
                   })
                 }

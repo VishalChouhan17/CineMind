@@ -1590,39 +1590,354 @@
 
 @media (max-width: 768px) {
   :root {
-    --sidebar-width: 60px;
+    --sidebar-width: 0px;
   }
-  .home-topbar {
-    padding: 1rem 1.5rem;
+
+  .app-shell {
+    flex-direction: column;
+    overflow-x: hidden;
   }
-  .hero-banner {
-    height: 50vh;
-    padding: 0 1.5rem 2rem 1.5rem;
+
+  /* Transform Left Sidebar into Native Mobile Bottom Navigation Bar */
+  .cinemind-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 0.5rem;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 11, 16, 0.98);
+    backdrop-filter: blur(18px);
+    z-index: 1000;
   }
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-description {
+
+  .sidebar-brand {
     display: none;
   }
+
+  .sidebar-nav {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    width: auto;
+  }
+
+  .sidebar-footer {
+    margin-top: 0;
+    margin-left: 0.25rem;
+  }
+
+  .sidebar-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .main-content-area {
+    width: 100vw;
+    padding-bottom: 75px !important;
+  }
+
+  /* Mobile Topbar */
+  .home-topbar {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .platform-tag {
+    font-size: 1.35rem;
+  }
+
+  .platform-subtag {
+    display: none;
+  }
+
+  .topbar-search-text {
+    display: none;
+  }
+
+  .topbar-search-chip {
+    padding: 0.45rem 0.75rem;
+    border-radius: 20px;
+  }
+
+  .user-pill-name {
+    display: none;
+  }
+
+  /* Mobile Hero Banner */
+  .hero-banner {
+    height: auto;
+    min-height: 460px;
+    padding: 5.5rem 1.25rem 2.25rem 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-cta-row {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .btn-hero-watch {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-hero-ai {
+    padding: 0.75rem 1.15rem;
+    font-size: 0.88rem;
+  }
+
+  /* Horizontal Carousels on Mobile */
   .carousel-section {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
+    margin-bottom: 1.5rem;
   }
+
+  .section-heading {
+    font-size: 1.15rem;
+  }
+
+  .horizontal-poster-row {
+    gap: 0.75rem;
+    padding: 0.35rem 0 0.85rem 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portrait-card {
+    min-width: 135px;
+    width: 135px;
+  }
+
+  .card-title {
+    font-size: 0.85rem;
+  }
+
+  /* Search Page on Mobile */
   .search-page-container {
-    padding: 1.5rem;
+    padding: 1.25rem 1rem 5rem 1rem;
   }
+
+  .search-title {
+    font-size: 1.75rem;
+  }
+
+  .search-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .search-input-hero {
+    padding: 0.35rem 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .search-input-field {
+    font-size: 1rem;
+    width: 100%;
+    order: 1;
+  }
+
+  .search-icon-wrapper {
+    order: 0;
+  }
+
+  .btn-voice-search {
+    order: 2;
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .btn-search-submit {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .quick-suggestions-wrap {
+    gap: 0.45rem;
+  }
+
+  .suggestion-pill {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.78rem;
+  }
+
   .search-filters-row {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
+
   .search-action-bar {
     flex-direction: column;
     align-items: stretch;
+    gap: 1rem;
   }
+
   .btn-primary-glow {
     width: 100%;
     text-align: center;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+
+  /* Categories Hub on Mobile */
+  .category-page-container {
+    padding: 1.25rem 1rem 5rem 1rem;
+  }
+
+  .category-header {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .category-main-heading {
+    font-size: 1.6rem;
+  }
+
+  .category-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .categories-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .cat-search-box {
+    width: 100%;
+  }
+
+  .category-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .category-card-card {
+    height: 175px;
+    padding: 1.15rem;
+  }
+
+  .cat-card-title {
+    font-size: 1.2rem;
+  }
+
+  /* Results Grid on Mobile: 2 Columns */
+  .results-sticky-header {
+    padding: 0.85rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    position: relative;
+  }
+
+  .results-header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .results-main-title {
+    font-size: 1.35rem;
+  }
+
+  .results-scroll-body {
+    padding: 1rem 1rem 5rem 1rem;
+  }
+
+  .streaming-results-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+  }
+
+  .firetv-remote-legend-bar {
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* Movie Detail Modal on Mobile */
+  .modal-backdrop-overlay {
+    padding: 0.65rem;
+  }
+
+  .movie-detail-modal {
+    max-height: 90vh;
+    border-radius: 14px;
+  }
+
+  .modal-hero-cover {
+    min-height: 220px;
+    padding: 1.25rem;
+  }
+
+  .modal-movie-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-meta-row {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    font-size: 0.82rem;
+  }
+
+  .modal-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .btn-play-hero,
+  .btn-watchlist-hero {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .modal-body-content {
+    padding: 1.25rem;
+    gap: 1.15rem;
+  }
+
+  /* Floating Toast on Mobile */
+  .cinemind-floating-toast {
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+    top: 1rem;
+    font-size: 0.85rem;
+    padding: 0.65rem 1.25rem;
   }
 }
+
 
 /* Clean Modern Movie Card */
 .streaming-movie-card {

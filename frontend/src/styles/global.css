@@ -107,3 +107,31 @@ button {
   font-family: inherit;
   color: inherit;
 }
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+  }
+  #root {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+  }
+  .app-shell {
+    overflow-y: visible;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+  }
+  .main-content-area {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+}
+
