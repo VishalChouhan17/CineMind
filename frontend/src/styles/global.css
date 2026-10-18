@@ -1,0 +1,109 @@
+/* ==============================================
+   CineMind — Streaming Platform Global Styles
+   Inspired by JioHotstar, Netflix & Fire TV
+   ============================================== */
+
+:root {
+  /* Colors */
+  --bg-primary: #0a0b10;
+  --bg-secondary: #12141d;
+  --bg-surface: #191c28;
+  --bg-card: #161822;
+  --bg-card-hover: #222636;
+  
+  --netflix-red: #e50914;
+  --netflix-red-hover: #f40612;
+  --hotstar-blue: #00a8e1;
+  --accent-blue-glow: rgba(0, 168, 225, 0.45);
+  --accent-gold: #ffbe18;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a3a8be;
+  --text-muted: #72778f;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-xs: 0.85rem;
+  --font-sm: 0.95rem;
+  --font-base: 1.15rem;
+  --font-md: 1.35rem;
+  --font-lg: 1.75rem;
+  --font-xl: 2.25rem;
+  --font-2xl: 3rem;
+
+  /* Focus ring for Fire TV Remote */
+  --focus-ring: 0 0 0 3px #00a8e1, 0 0 25px rgba(0, 168, 225, 0.6);
+  --sidebar-width: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Amazon Ember", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Base App Shell with Sidebar */
+.app-shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* Main Outlet beside the sidebar */
+.main-content-area {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.main-content-area::-webkit-scrollbar {
+  width: 8px;
+}
+.main-content-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Focus styles for remote navigation */
+*:focus {
+  outline: none;
+}
+
+[data-focusable]:focus,
+button:focus,
+input:focus,
+select:focus {
+  box-shadow: var(--focus-ring) !important;
+  transform: scale(1.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 10;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
