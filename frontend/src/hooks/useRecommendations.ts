@@ -1,4 +1,4 @@
-﻿import { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 import { Recommendation, SearchQuery, RecommendationResponse } from "../types";
 
@@ -9,6 +9,8 @@ interface UseRecommendationsReturn {
   fetchRecommendations: (query: SearchQuery) => Promise<void>;
   clearRecommendations: () => void;
 }
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
 
 export function useRecommendations(): UseRecommendationsReturn {
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
@@ -21,7 +23,7 @@ export function useRecommendations(): UseRecommendationsReturn {
     setRecommendations([]);
     try {
       const response = await axios.post<RecommendationResponse>(
-        "/api/recommendations",
+        `${API_BASE_URL}/api/recommendations`,
         {
           query: query.query,
           mood: query.mood,
