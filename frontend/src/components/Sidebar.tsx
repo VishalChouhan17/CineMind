@@ -11,56 +11,51 @@ interface SidebarProps {
 export default function Sidebar({ currentPage, onNavigate, onOpenAuth, userEmail }: SidebarProps) {
   return (
     <aside className="cinemind-sidebar">
-      {/* Top Logo: Custom CineMind Brand Glyph (Cinema 'C' + Neuro-Aperture + Play Pulse) */}
-      <div className="sidebar-brand" onClick={() => onNavigate("home")} title="CineMind">
+      {/* Top Logo: Amazon Fire TV + CineMind Emblem */}
+      <div className="sidebar-brand" onClick={() => onNavigate("home")} title="CineMind on Fire TV">
         <svg
           className="cinemind-logo-svg"
-          viewBox="0 0 40 40"
+          viewBox="0 0 44 44"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="cm-grad-cyan" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#00E5FF" />
-              <stop offset="55%" stopColor="#0088FE" />
-              <stop offset="100%" stopColor="#8A2BE2" />
+            <linearGradient id="prime-grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#00A8E1" />
+              <stop offset="100%" stopColor="#007198" />
             </linearGradient>
-            <linearGradient id="cm-grad-accent" x1="12" y1="12" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#FF3366" />
-              <stop offset="100%" stopColor="#FF8C00" />
+            <linearGradient id="amazon-smile-grad" x1="8" y1="28" x2="36" y2="34" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#FF9900" />
+              <stop offset="100%" stopColor="#FFB84D" />
             </linearGradient>
-            <filter id="cm-glow-filter" x="-25%" y="-25%" width="150%" height="150%">
-              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#00E5FF" floodOpacity="0.5" />
+            <filter id="prime-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#00A8E1" floodOpacity="0.6" />
             </filter>
           </defs>
 
-          {/* Outer Cinema 'C' Sculpted Track */}
+          {/* Fire TV Cinema Aperture Circle */}
+          <rect x="3" y="3" width="38" height="38" rx="10" fill="#131c28" stroke="#00A8E1" strokeWidth="2" filter="url(#prime-glow)" />
+
+          {/* Cinema 'C' Track */}
           <path
-            d="M28 8.5C25.5 6.8 22.8 6 20 6C12.268 6 6 12.268 6 20C6 27.732 12.268 34 20 34C23.2 34 26.1 32.9 28.5 31"
-            stroke="url(#cm-grad-cyan)"
-            strokeWidth="3.6"
+            d="M28 14C26 12 23.5 11 20 11C14.5 11 11 15 11 20.5C11 26 14.5 30 20 30C23.5 30 26 29 28 27"
+            stroke="url(#prime-grad)"
+            strokeWidth="3.2"
             strokeLinecap="round"
-            filter="url(#cm-glow-filter)"
           />
 
-          {/* Inner Mind / Cinema Reel Aperture Arc */}
+          {/* Play Triangle */}
+          <path d="M19 16.5L25 20.5L19 24.5V16.5Z" fill="#00A8E1" />
+
+          {/* Amazon Fire TV Orange Smile Curve */}
           <path
-            d="M20 12C15.58 12 12 15.58 12 20C12 24.42 15.58 28 20 28"
-            stroke="url(#cm-grad-accent)"
-            strokeWidth="2.8"
+            d="M13 32.5C18 36 26 36 31 32.5"
+            stroke="url(#amazon-smile-grad)"
+            strokeWidth="2.5"
             strokeLinecap="round"
-            strokeDasharray="4 2"
           />
-
-          {/* Center Play Pulse */}
-          <path
-            d="M18.5 15.5L26 20L18.5 24.5V15.5Z"
-            fill="url(#cm-grad-cyan)"
-          />
-
-          {/* Neural Synapse Nodes at C endpoints */}
-          <circle cx="28" cy="8.5" r="2.2" fill="#00E5FF" />
-          <circle cx="28.5" cy="31" r="2.2" fill="#8A2BE2" />
+          {/* Arrowhead */}
+          <path d="M30 30.5L32 33L29 34" fill="#FF9900" />
         </svg>
       </div>
 

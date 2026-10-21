@@ -149,17 +149,148 @@
   border-radius: 4px;
 }
 
-.topbar-right {
+/* ==============================================
+   2. Amazon Fire TV & Prime Navigation Header
+   ============================================== */
+.home-topbar.amazon-firetv-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  background: linear-gradient(180deg, rgba(13, 20, 30, 0.98) 0%, rgba(13, 20, 30, 0.85) 75%, transparent 100%);
+  backdrop-filter: blur(16px);
+  z-index: 90;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.firetv-brand-combo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.firetv-tag {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.firetv-accent {
+  color: var(--amazon-orange);
+  font-weight: 900;
+  margin-left: 1px;
+}
+
+.firetv-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.1rem;
+}
+
+.prime-cyan-text {
+  color: var(--prime-cyan);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  text-shadow: 0 0 16px var(--prime-cyan-glow);
+}
+
+.firetv-quick-nav {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  margin-left: 2rem;
+}
+
+.firetv-nav-pill {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.firetv-nav-pill:hover,
+.firetv-nav-pill:focus {
+  color: #ffffff;
+}
+
+.firetv-nav-pill.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.firetv-nav-pill.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--prime-cyan);
+  border-radius: 3px;
+  box-shadow: 0 0 8px var(--prime-cyan);
+}
+
+.pill-counter {
+  color: var(--prime-cyan);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Alexa Voice Remote Indicator Chip */
+.alexa-voice-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(0, 168, 225, 0.15) 0%, rgba(0, 168, 225, 0.05) 100%);
+  border: 1px solid rgba(0, 168, 225, 0.35);
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 15px rgba(0, 168, 225, 0.15);
+}
+
+.alexa-voice-chip:hover,
+.alexa-voice-chip:focus {
+  background: linear-gradient(135deg, rgba(0, 168, 225, 0.3) 0%, rgba(0, 168, 225, 0.15) 100%);
+  border-color: var(--prime-cyan);
+  box-shadow: 0 0 20px rgba(0, 168, 225, 0.45);
+  transform: scale(1.03);
+}
+
+.alexa-mic-wave {
+  font-size: 1.05rem;
+  filter: drop-shadow(0 0 6px var(--prime-cyan));
+}
+
+.alexa-text {
+  color: var(--prime-cyan);
 }
 
 .topbar-search-chip {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.55rem 1.25rem;
@@ -172,28 +303,34 @@
 .topbar-search-chip svg {
   width: 16px;
   height: 16px;
-  color: var(--hotstar-blue);
+  color: var(--prime-cyan);
 }
 
 .topbar-search-chip:hover,
 .topbar-search-chip:focus {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: var(--hotstar-blue);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--prime-cyan);
   color: white;
+  box-shadow: 0 0 14px rgba(0, 168, 225, 0.25);
 }
 
-.btn-signin-netflix {
-  background-color: var(--netflix-red);
-  color: white;
-  font-weight: 700;
+.btn-signin-prime {
+  background-color: var(--prime-cyan);
+  color: #0d141e;
+  font-weight: 800;
   font-size: 0.9rem;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1.35rem;
   border-radius: 6px;
-  transition: background 0.2s ease;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 168, 225, 0.3);
 }
 
-.btn-signin-netflix:hover {
-  background-color: var(--netflix-red-hover);
+.btn-signin-prime:hover,
+.btn-signin-prime:focus {
+  background-color: var(--prime-cyan-hover);
+  transform: scale(1.03);
 }
 
 .user-profile-pill {
@@ -220,15 +357,17 @@
   font-size: 0.75rem;
 }
 
-/* 3. Hero Banner */
-.hero-banner {
+/* ==============================================
+   3. Amazon Prime Video Hero Billboard
+   ============================================== */
+.hero-banner.prime-billboard {
   position: relative;
   width: 100%;
-  height: 65vh;
-  min-height: 480px;
+  height: 68vh;
+  min-height: 520px;
   display: flex;
   align-items: flex-end;
-  padding: 0 3rem 4rem 3rem;
+  padding: 0 3rem 4.5rem 3rem;
   overflow: hidden;
 }
 
@@ -243,79 +382,114 @@
   z-index: 1;
 }
 
-.hero-vignette-overlay {
+.hero-vignette-overlay.prime-vignette {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(10, 11, 16, 0.98) 0%,
-    rgba(10, 11, 16, 0.85) 35%,
-    rgba(10, 11, 16, 0.4) 70%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to top,
-    rgba(10, 11, 16, 1) 0%,
-    rgba(10, 11, 16, 0.7) 20%,
-    transparent 60%
-  );
+  background: 
+    linear-gradient(
+      to right,
+      rgba(13, 20, 30, 0.98) 0%,
+      rgba(13, 20, 30, 0.88) 38%,
+      rgba(13, 20, 30, 0.45) 70%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(13, 20, 30, 1) 0%,
+      rgba(13, 20, 30, 0.8) 25%,
+      transparent 65%
+    );
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
-  max-width: 650px;
+  max-width: 680px;
 }
 
 .hero-badge-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.75rem;
-  font-size: 0.8rem;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
-.badge-exclusive {
-  background: rgba(0, 168, 225, 0.2);
-  color: var(--hotstar-blue);
-  border: 1px solid rgba(0, 168, 225, 0.5);
-  padding: 2px 8px;
+.badge-prime-firetv {
+  background: var(--amazon-orange);
+  color: #0d141e;
+  font-weight: 900;
+  padding: 3px 10px;
   border-radius: 4px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 0 14px var(--amazon-orange-glow);
 }
 
-.badge-rating {
-  color: var(--accent-gold);
+.badge-prime-check {
+  color: var(--prime-cyan);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 10px var(--prime-cyan-glow);
+}
+
+.badge-imdb {
+  background: var(--imdb-gold);
+  color: #000000;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  letter-spacing: 0.2px;
+}
+
+.badge-imdb-sm {
+  background: var(--imdb-gold);
+  color: #000000;
+  font-weight: 900;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.72rem;
+}
+
+.badge-tech-pill {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
 }
 
 .hero-meta-tag {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .hero-title {
   font-size: 3.8rem;
   font-weight: 900;
-  letter-spacing: -1.5px;
+  letter-spacing: -1.2px;
   line-height: 1.05;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
   text-transform: uppercase;
-  background: linear-gradient(180deg, #ffffff 40%, #e0e0e0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
 .hero-tagline {
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--prime-cyan);
   margin-bottom: 0.75rem;
+  text-shadow: 0 0 12px var(--prime-cyan-glow);
 }
 
 .hero-description {
-  font-size: 0.95rem;
-  color: #c4c8da;
-  line-height: 1.5;
-  margin-bottom: 1.75rem;
+  font-size: 0.98rem;
+  color: #c4d1e0;
+  line-height: 1.55;
+  margin-bottom: 1.85rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -325,74 +499,85 @@
 .hero-cta-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
-.btn-hero-watch {
+/* Amazon Prime Hero Action Buttons */
+.btn-prime-primary {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  background: linear-gradient(90deg, #0088cc 0%, #00b4d8 100%);
-  color: white;
-  font-weight: 800;
+  gap: 0.65rem;
+  background: var(--prime-cyan);
+  color: #0d141e;
+  font-weight: 900;
   font-size: 1.05rem;
-  padding: 0.9rem 2.2rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 20px rgba(0, 168, 225, 0.4);
+  padding: 0.85rem 2.2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 20px rgba(0, 168, 225, 0.5);
 }
 
-.btn-hero-watch svg {
+.btn-prime-primary svg {
   width: 20px;
   height: 20px;
 }
 
-.btn-hero-watch:hover,
-.btn-hero-watch:focus {
-  transform: scale(1.04);
-  background: linear-gradient(90deg, #0099e6 0%, #00c8f0 100%);
+.btn-prime-primary:hover,
+.btn-prime-primary:focus {
+  transform: scale(1.05);
+  background: var(--prime-cyan-hover);
+  box-shadow: 0 0 25px rgba(0, 168, 225, 0.8);
 }
 
-.btn-hero-add {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+.btn-prime-secondary {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  transition: all 0.2s ease;
-}
-
-.btn-hero-add svg {
-  width: 22px;
-  height: 22px;
-}
-
-.btn-hero-add:hover,
-.btn-hero-add:focus {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
-}
-
-.btn-hero-ai {
-  padding: 0.85rem 1.5rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.95rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.2s ease;
+  padding: 0.85rem 1.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.22s ease;
 }
 
-.btn-hero-ai:hover,
-.btn-hero-ai:focus {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: var(--hotstar-blue);
+.btn-prime-secondary:hover,
+.btn-prime-secondary:focus {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #ffffff;
+  transform: scale(1.04);
+}
+
+.btn-prime-secondary.added {
+  border-color: var(--prime-cyan);
+  color: var(--prime-cyan);
+  background: rgba(0, 168, 225, 0.15);
+}
+
+.btn-prime-alexa {
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(0, 168, 225, 0.2) 0%, rgba(13, 20, 30, 0.8) 100%);
+  border: 1px solid rgba(0, 168, 225, 0.45);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.22s ease;
+}
+
+.btn-prime-alexa:hover,
+.btn-prime-alexa:focus {
+  background: rgba(0, 168, 225, 0.35);
+  border-color: var(--prime-cyan);
+  box-shadow: 0 0 20px var(--prime-cyan-glow);
 }
 
 /* 4. Carousels & Movie Rows */
@@ -453,8 +638,8 @@
 .portrait-card:hover,
 .portrait-card:focus {
   transform: scale(1.08);
-  border-color: var(--hotstar-blue);
-  box-shadow: 0 8px 25px rgba(0, 168, 225, 0.4);
+  border-color: var(--prime-cyan);
+  box-shadow: 0 8px 25px rgba(0, 168, 225, 0.45);
   z-index: 15;
 }
 
@@ -465,17 +650,204 @@
   display: block;
 }
 
+/* Amazon Prime Section Titles & Badges */
+.prime-section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.prime-ribbon-tag {
+  background: var(--amazon-orange);
+  color: #0d141e;
+  font-weight: 900;
+  font-size: 0.74rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.prime-check-tag {
+  color: var(--prime-cyan);
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 10px var(--prime-cyan-glow);
+}
+
+.prime-view-link {
+  color: var(--prime-cyan);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: opacity 0.2s ease;
+}
+
+.prime-view-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ==============================================
+   Amazon Prime Signature "Top 10 on Fire TV" Numbered Rail
+   ============================================== */
+.prime-top10-section {
+  margin-top: 1rem;
+}
+
+.top10-row {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0.5rem 1.5rem 0.5rem;
+  overflow-x: auto;
+  align-items: flex-end;
+}
+
+.top10-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex: 0 0 230px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  overflow: visible;
+  transition: transform 0.25s ease;
+}
+
+.top10-card:hover,
+.top10-card:focus {
+  transform: scale(1.06);
+  z-index: 20;
+}
+
+.top10-rank-number {
+  font-size: 6.8rem;
+  font-weight: 900;
+  line-height: 0.85;
+  color: #0d141e;
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.45);
+  letter-spacing: -6px;
+  margin-right: -25px;
+  z-index: 1;
+  user-select: none;
+  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.9);
+  transition: all 0.25s ease;
+}
+
+.top10-card:hover .top10-rank-number,
+.top10-card:focus .top10-rank-number {
+  -webkit-text-stroke: 3.5px var(--prime-cyan);
+  color: rgba(0, 168, 225, 0.25);
+  text-shadow: 0 0 20px var(--prime-cyan-glow);
+}
+
+.top10-poster-wrap {
+  position: relative;
+  width: 160px;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 2px solid transparent;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.top10-card:hover .top10-poster-wrap,
+.top10-card:focus .top10-poster-wrap {
+  border-color: var(--prime-cyan);
+  box-shadow: 0 0 25px rgba(0, 168, 225, 0.5);
+}
+
+.prime-corner-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(0, 168, 225, 0.9);
+  color: #0d141e;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 3px;
+  z-index: 10;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
 .card-top10-badge {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: #e50914;
-  color: white;
+  background: var(--amazon-orange);
+  color: #0d141e;
   font-size: 0.65rem;
   font-weight: 900;
-  padding: 2px 5px;
+  padding: 2px 6px;
   border-radius: 3px;
   z-index: 5;
+}
+
+/* ==============================================
+   Fire TV Remote D-Pad Legend Footer Bar
+   ============================================== */
+.firetv-remote-legend-bar {
+  position: fixed;
+  bottom: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: 44px;
+  background: rgba(13, 20, 30, 0.94);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  z-index: 80;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.remote-key {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.legend-alexa {
+  color: var(--prime-cyan);
+  font-weight: 600;
+}
+
+.alexa-glow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--prime-cyan);
+  box-shadow: 0 0 10px var(--prime-cyan);
+  animation: pulseAlexa 2s infinite ease-in-out;
+}
+
+@keyframes pulseAlexa {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 .portrait-card-overlay {
@@ -1649,6 +2021,31 @@
   /* Mobile Topbar */
   .home-topbar {
     padding: 0.85rem 1.25rem;
+  }
+
+  .firetv-quick-nav {
+    display: none;
+  }
+
+  .alexa-text {
+    display: none;
+  }
+
+  .firetv-remote-legend-bar {
+    display: none !important;
+  }
+
+  .top10-rank-number {
+    font-size: 4.5rem;
+    margin-right: -15px;
+  }
+
+  .top10-poster-wrap {
+    width: 130px;
+  }
+
+  .top10-card {
+    flex: 0 0 170px;
   }
 
   .platform-tag {

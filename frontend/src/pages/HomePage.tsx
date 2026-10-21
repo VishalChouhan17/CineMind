@@ -227,20 +227,41 @@ export default function HomePage({
         </div>
       )}
 
-      {/* Top Header / Bar */}
-      <header className="home-topbar">
+      {/* Top Header / Bar — Official Amazon Fire TV & Prime Navigation Ribbon */}
+      <header className="home-topbar amazon-firetv-header">
         <div className="topbar-left">
-          <span className="platform-tag">CineMind</span>
-          <span className="platform-subtag">STREAMING COMPANION</span>
+          <div className="firetv-brand-combo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <span className="firetv-tag">fire<span className="firetv-accent">tv</span></span>
+            <span className="firetv-divider">|</span>
+            <span className="platform-tag prime-cyan-text">CineMind</span>
+          </div>
+
+          {/* Quick TV Nav Pills */}
+          <nav className="firetv-quick-nav">
+            <span className="firetv-nav-pill active">Home</span>
+            <span className="firetv-nav-pill" onClick={onNavigateSearch}>AI Search</span>
+            <span className="firetv-nav-pill" onClick={onNavigateSearch}>Categories</span>
+            {watchlist.length > 0 && (
+              <span className="firetv-nav-pill watchlist-pill">
+                My Stuff <span className="pill-counter">({watchlist.length})</span>
+              </span>
+            )}
+          </nav>
         </div>
 
         <div className="topbar-right">
+          {/* Alexa Voice Remote Indicator */}
+          <button className="alexa-voice-chip" onClick={onNavigateSearch} title="Click to trigger voice search">
+            <span className="alexa-mic-wave">🎙️</span>
+            <span className="alexa-text">Ask Alexa</span>
+          </button>
+
           <button className="topbar-search-chip" onClick={onNavigateSearch}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <circle cx="11" cy="11" r="7" />
               <line x1="21" y1="21" x2="16" y2="16" />
             </svg>
-            <span className="topbar-search-text">Ask CineMind...</span>
+            <span className="topbar-search-text">Search titles, actors, vibes...</span>
           </button>
 
           {userEmail ? (
@@ -249,7 +270,7 @@ export default function HomePage({
               <span className="user-pill-name">{userEmail.split("@")[0]}</span>
             </div>
           ) : (
-            <button className="btn-signin-netflix" onClick={onOpenAuth}>
+            <button className="btn-signin-prime" onClick={onOpenAuth}>
               Sign In
             </button>
           )}
@@ -258,33 +279,37 @@ export default function HomePage({
 
       {/* Main Content Area */}
       <div className="home-scroll-container">
-        {/* HERO BANNER SECTION */}
-        <section className="hero-banner">
+        {/* HERO BANNER SECTION — PRIME VIDEO CINEMATIC BILLBOARD */}
+        <section className="hero-banner prime-billboard">
           <div
             className="hero-backdrop-img"
             style={{
               backgroundImage: `url(https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&auto=format&fit=crop&q=80)`,
             }}
           >
-            <div className="hero-vignette-overlay" />
+            <div className="hero-vignette-overlay prime-vignette" />
           </div>
 
           <div className="hero-content">
             <div className="hero-badge-row">
-              <span className="badge-exclusive">EXCLUSIVE PREMIERE</span>
-              <span className="badge-rating">★ {heroMovie.rating}</span>
+              <span className="badge-prime-firetv">🔥 #1 ON FIRE TV TODAY</span>
+              <span className="badge-prime-check">✓ prime</span>
+              <span className="badge-imdb">IMDb {heroMovie.rating}</span>
               <span className="hero-meta-tag">{heroMovie.year}</span>
               <span className="hero-meta-tag">2h 34m</span>
+              <span className="badge-tech-pill">UHD 4K</span>
+              <span className="badge-tech-pill">HDR10+</span>
+              <span className="badge-tech-pill">Dolby Atmos</span>
             </div>
 
             <h1 className="hero-title">{heroMovie.title}</h1>
-            <p className="hero-tagline">A Mighty Warrior. An Unforgiving Destiny.</p>
+            <p className="hero-tagline">Fire TV AI Premiere • An Epic Historical Fantasy Across Centuries</p>
             <p className="hero-description">{heroMovie.overview}</p>
 
-            {/* Action Buttons */}
+            {/* Action Buttons in Prime Video Aesthetics */}
             <div className="hero-cta-row">
               <button
-                className="btn-hero-watch"
+                className="btn-hero-watch btn-prime-primary"
                 onClick={() => setSelectedMovie(heroMovie)}
                 data-focusable
                 tabIndex={0}
@@ -297,7 +322,7 @@ export default function HomePage({
               </button>
 
               <button
-                className={`btn-hero-add ${isHeroInWatchlist ? "added" : ""}`}
+                className={`btn-hero-add btn-prime-secondary ${isHeroInWatchlist ? "added" : ""}`}
                 onClick={handleToggleHeroWatchlist}
                 title={isHeroInWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
                 data-focusable
@@ -305,23 +330,29 @@ export default function HomePage({
                 aria-label={isHeroInWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
               >
                 {isHeroInWatchlist ? (
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-                  </svg>
+                  <>
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                      <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+                    </svg>
+                    <span>In Watchlist</span>
+                  </>
                 ) : (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="22" height="22">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
+                  <>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="20" height="20">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    <span>Watchlist</span>
+                  </>
                 )}
               </button>
 
               <button
-                className="btn-hero-ai"
+                className="btn-hero-ai btn-prime-alexa"
                 onClick={() => setSelectedMovie(heroMovie)}
                 data-focusable
                 tabIndex={0}
               >
-                <span>✨ AI Insights</span>
+                <span>🎙️ Alexa AI Review</span>
               </button>
             </div>
           </div>
@@ -412,20 +443,23 @@ export default function HomePage({
           </div>
         </section>
 
-        {/* CAROUSEL 1: NEW ON CINEMIND (REAL DATA) */}
-        <section className="carousel-section">
+        {/* CAROUSEL 1: SIGNATURE PRIME VIDEO "TOP 10 ON FIRE TV TODAY" WITH NUMBERED CARDS */}
+        <section className="carousel-section prime-top10-section">
           <div className="section-title-row">
-            <h3 className="section-heading">New on CineMind</h3>
-            <button className="view-all-link" onClick={onNavigateSearch}>
-              View All &gt;
+            <div className="prime-section-title-wrap">
+              <span className="prime-ribbon-tag">TOP 10</span>
+              <h3 className="section-heading">Top 10 Movies on Fire TV Today</h3>
+            </div>
+            <button className="view-all-link prime-view-link" onClick={onNavigateSearch}>
+              See More &gt;
             </button>
           </div>
 
-          <div className="horizontal-poster-row">
-            {newReleases.map((item) => (
+          <div className="horizontal-poster-row top10-row">
+            {newReleases.map((item, index) => (
               <div
                 key={item.id}
-                className="portrait-card"
+                className="portrait-card top10-card"
                 onClick={() =>
                   setSelectedMovie({
                     title: item.title,
@@ -441,14 +475,20 @@ export default function HomePage({
                 }
                 data-focusable
                 tabIndex={0}
+                aria-label={`Rank ${index + 1}: ${item.title}`}
               >
-                {item.badge && <div className="card-top10-badge">{item.badge}</div>}
-                <img src={item.poster} alt={item.title} className="portrait-card-img" loading="lazy" />
-                <div className="portrait-card-overlay">
-                  <h4 className="card-title">{item.title}</h4>
-                  <div className="card-rating-row">
-                    <span>★ {item.rating}</span>
-                    <span>{item.year}</span>
+                {/* Amazon Prime Signature Big 3D Number */}
+                <div className="top10-rank-number">{index + 1}</div>
+
+                <div className="top10-poster-wrap">
+                  <div className="prime-corner-badge">prime</div>
+                  <img src={item.poster} alt={item.title} className="portrait-card-img" loading="lazy" />
+                  <div className="portrait-card-overlay">
+                    <h4 className="card-title">{item.title}</h4>
+                    <div className="card-rating-row">
+                      <span className="badge-imdb-sm">IMDb {item.rating}</span>
+                      <span>{item.year}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -456,11 +496,14 @@ export default function HomePage({
           </div>
         </section>
 
-        {/* CAROUSEL 2: TOP REALITY SHOWS & LIVE SPORTS */}
+        {/* CAROUSEL 2: INCLUDED WITH FIRE TV (AI PICKS) */}
         <section className="carousel-section">
           <div className="section-title-row">
-            <h3 className="section-heading">Top Shows, Documentaries & Sports</h3>
-            <button className="view-all-link" onClick={onNavigateSearch}>
+            <div className="prime-section-title-wrap">
+              <span className="prime-check-tag">✓ prime</span>
+              <h3 className="section-heading">Included with Fire TV — Curated by CineMind AI</h3>
+            </div>
+            <button className="view-all-link prime-view-link" onClick={onNavigateSearch}>
               Explore &gt;
             </button>
           </div>
@@ -486,11 +529,16 @@ export default function HomePage({
                 data-focusable
                 tabIndex={0}
               >
-                {item.isLive && <div className="card-top10-badge badge-live">LIVE</div>}
+                {item.isLive ? (
+                  <div className="card-top10-badge badge-live">LIVE 4K</div>
+                ) : (
+                  <div className="prime-corner-badge">prime</div>
+                )}
                 <img src={item.poster} alt={item.title} className="portrait-card-img" loading="lazy" />
                 <div className="portrait-card-overlay">
                   <h4 className="card-title">{item.title}</h4>
                   <div className="card-rating-row">
+                    <span className="badge-imdb-sm">★ {item.rating}</span>
                     <span>{item.sub}</span>
                   </div>
                 </div>
@@ -499,6 +547,31 @@ export default function HomePage({
           </div>
         </section>
       </div>
+
+      {/* Fire TV Remote D-Pad Legend Footer */}
+      <footer className="firetv-remote-legend-bar">
+        <div className="legend-item">
+          <kbd className="remote-key">▲</kbd>
+          <kbd className="remote-key">▼</kbd>
+          <kbd className="remote-key">◀</kbd>
+          <kbd className="remote-key">▶</kbd>
+          <span>D-Pad Navigate</span>
+        </div>
+        <div className="legend-item">
+          <kbd className="remote-key">↵ Enter</kbd>
+          <span>Watch Trailer</span>
+        </div>
+        <div className="legend-item">
+          <kbd className="remote-key">W</kbd>
+          <span>Add to Watchlist</span>
+        </div>
+        <div className="legend-item legend-alexa">
+          <span className="alexa-glow-dot" />
+          <span>Hold 🎙️ on Fire TV Remote to talk to CineMind</span>
+        </div>
+      </footer>
+
+      {/* Interactive Movie Preview & Trailer Modal */}
 
       {/* Interactive Movie Preview & Trailer Modal */}
       <MovieDetailModal

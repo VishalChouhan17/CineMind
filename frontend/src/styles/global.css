@@ -1,25 +1,27 @@
 /* ==============================================
-   CineMind — Streaming Platform Global Styles
-   Inspired by JioHotstar, Netflix & Fire TV
+   CineMind — Official Amazon Fire TV & Prime Video Design System
+   Tailored for Amazon Developer Hackathon 2026
    ============================================== */
 
 :root {
-  /* Colors */
-  --bg-primary: #0a0b10;
-  --bg-secondary: #12141d;
-  --bg-surface: #191c28;
-  --bg-card: #161822;
-  --bg-card-hover: #222636;
+  /* Official Amazon Fire TV & Prime Video Palette */
+  --bg-primary: #0d141e;          /* Amazon Prime Deep Space Navy */
+  --bg-secondary: #131c28;        /* Prime Dark Secondary */
+  --bg-surface: #1a2433;          /* Prime Elevated Card Surface */
+  --bg-card: #151f2e;             /* Prime Poster Card Base */
+  --bg-card-hover: #1f2d42;       /* Prime Hover / Focus Surface */
   
-  --netflix-red: #e50914;
-  --netflix-red-hover: #f40612;
-  --hotstar-blue: #00a8e1;
-  --accent-blue-glow: rgba(0, 168, 225, 0.45);
-  --accent-gold: #ffbe18;
+  --prime-cyan: #00a8e1;          /* Official Prime Video Electric Cyan */
+  --prime-cyan-hover: #1ab8ef;
+  --prime-cyan-glow: rgba(0, 168, 225, 0.45);
+  
+  --amazon-orange: #ff9900;       /* Amazon Fire TV Smile Orange */
+  --amazon-orange-glow: rgba(255, 153, 0, 0.4);
+  --imdb-gold: #f5c518;           /* Official IMDb Yellow Badge */
   
   --text-primary: #ffffff;
-  --text-secondary: #a3a8be;
-  --text-muted: #72778f;
+  --text-secondary: #99a7b7;      /* Prime Video Subtitle Slate */
+  --text-muted: #6b7c93;
   --border-subtle: rgba(255, 255, 255, 0.08);
 
   /* Typography */
@@ -31,9 +33,9 @@
   --font-xl: 2.25rem;
   --font-2xl: 3rem;
 
-  /* Focus ring for Fire TV Remote */
-  --focus-ring: 0 0 0 3px #00a8e1, 0 0 25px rgba(0, 168, 225, 0.6);
-  --sidebar-width: 72px;
+  /* Fire TV Remote D-Pad Focus Ring */
+  --focus-ring: 0 0 0 3.5px #00a8e1, 0 0 25px rgba(0, 168, 225, 0.7);
+  --sidebar-width: 76px;
 }
 
 *, *::before, *::after {
